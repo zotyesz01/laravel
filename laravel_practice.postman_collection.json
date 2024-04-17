@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "91fa07f0-f0ee-4b2c-8fd2-c9b83298a99a",
+		"name": "laravel_practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{lang}}/products?page=1&limit=10&sort_by=id&sort_direction=asc",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sort_by",
+									"value": "id"
+								},
+								{
+									"key": "sort_direction",
+									"value": "asc"
+								},
+								{
+									"key": "name",
+									"value": "mé",
+									"disabled": true
+								},
+								{
+									"key": "net_price_from",
+									"value": "400",
+									"disabled": true
+								},
+								{
+									"key": "net_price_to",
+									"value": "502",
+									"disabled": true
+								},
+								{
+									"key": "gross_price_from",
+									"value": "800",
+									"disabled": true
+								},
+								{
+									"key": "gross_price_to",
+									"value": "900",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"1148 termék\",\r\n    \"net_price\": 100.23,\r\n    \"gross_price\": 200.11,\r\n    \"category_id\": 1,\r\n    \"description\": \"1. termék leírása\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{lang}}/products",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"2 termék\",\r\n    \"net_price\": 5003.320,\r\n    \"gross_price\": 803.11,\r\n    \"category_id\": 1,\r\n    \"description\": \"1 termék leírása.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{lang}}/products/2",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{lang}}/products/1",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{lang}}/products/6",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"products",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "hu",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}{{lang}}/categories?page=1&limit=2&sort_by=id&sort_direction=asc",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"categories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "sort_by",
+									"value": "id"
+								},
+								{
+									"key": "sort_direction",
+									"value": "asc"
+								},
+								{
+									"key": "name",
+									"value": "at",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kategória 111\",\r\n    \"description\": \"1 kategória leírása\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{lang}}/categories",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"11110 kategória\",\r\n    \"description\": \"1. kategória leírás.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}{{lang}}/categories/10",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"categories",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}{{lang}}/categories/1",
+							"host": [
+								"{{base_url}}{{lang}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api/"
+		},
+		{
+			"key": "lang",
+			"value": "hu"
+		}
+	]
+}

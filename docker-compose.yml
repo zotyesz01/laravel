@@ -1,0 +1,51 @@
+version: "3.8"
+services:
+
+  # postgres container
+  postgres:
+    image: postgres:16.0
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=adminpassword
+      - POSTGRES_DB=test
+    networks:
+      - practice
+
+  # pgadmin container
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@email.com
+      PGADMIN_DEFAULT_PASSWORD: adminpassword
+    ports:
+      - 5050:80
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    restart: always
+    networks:
+      - practice
+
+  # Laravel apache project container
+  www:
+    build: docker/php
+    container_name: laravel
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/php/vhosts:/etc/apache2/sites-enabled
+      - ./:/var/www
+    restart: always
+    networks:
+      - practice
+
+networks:
+  practice:
+
+volumes:
+  pgadmin_data:
